@@ -6,6 +6,7 @@ on:
 env:
   CECIL_VERSION: '5.29.1'
   CECIL_BASEURL: '/'
+  CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
 jobs:
   build:
@@ -41,7 +42,11 @@ jobs:
           curl -sSOL https://cecil.app/download/$CECIL_VERSION/cecil.phar
         fi
         echo "### Building Cecil static site"
-        php cecil.phar build -v
+        if [[ -z "$CONFIG" ]]; then
+          php cecil.phar build -v
+        else
+          php cecil.phar build -v --config=cecil.yml
+        fi
         echo "### Cecil Action done"
     - name: Upload site to Artifacts
       uses: actions/upload-artifact@v1
