@@ -8,6 +8,9 @@ env:
   CECIL_BASEURL: '/'
   CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
+  EMAIL: arnaud@ligny.org
+  GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  BUILD_DIR: _site
 jobs:
   build:
     name: Build
@@ -64,7 +67,3 @@ jobs:
         name: _site
     - name: Deploy site to GitHub Pages
       uses: Cecilapp/GitHub-Pages-deploy@2.0.1
-      env:
-        EMAIL: arnaud@ligny.org
-        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_DIR: _site
