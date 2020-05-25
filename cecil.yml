@@ -1,0 +1,6 @@
+title: Test
+content:
+  dir: .
+static:
+  dir: docs
+  target: docs
