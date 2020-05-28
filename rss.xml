@@ -3,16 +3,7 @@
   <channel>
     <title>Single GitHub Page</title>
     <description><![CDATA[Single GitHub Page demo]]></description>
-    <lastBuildDate>2020-05-28T16:43:04+02:00</lastBuildDate>
+    <lastBuildDate>2020-05-28T16:45:35+02:00</lastBuildDate>
     <link>/</link>
-    <item>
-      <guid>/another-page/</guid>
-      <title>another-page</title>
-      <description><![CDATA[<h2>Welcome to another page</h2>
-<p><em>yay</em></p>
-<p><a href="../">back</a></p>]]></description>
-      <pubDate>2020-05-28T16:43:04+02:00</pubDate>
-      <link>/another-page/</link>
-    </item>
   </channel>
 </rss>
