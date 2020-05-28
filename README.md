@@ -1,12 +1,14 @@
 # Single GitHub Page demo
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-There should be whitespace between paragraphs.
+> This is repository template who build a Single Page Website from the `README.md` file, with [Cecil](https://cecil.app), [GitHub Actions](https://github.com/features/actions) and [GitHub Pages](https://pages.github.com/).
 
 # Header 1
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+Text can be **bold**, _italic_, or ~~strikethrough~~.
+
+There should be whitespace between paragraphs.
 
 ## Header 2
 
