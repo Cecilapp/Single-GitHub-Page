@@ -3,7 +3,7 @@
   <channel>
     <title>Test</title>
     <description><![CDATA[]]></description>
-    <lastBuildDate>2020-05-28T16:36:56+02:00</lastBuildDate>
+    <lastBuildDate>2020-05-28T16:39:33+02:00</lastBuildDate>
     <link>/</link>
     <item>
       <guid>/another-page/</guid>
@@ -11,7 +11,7 @@
       <description><![CDATA[<h2>Welcome to another page</h2>
 <p><em>yay</em></p>
 <p><a href="../">back</a></p>]]></description>
-      <pubDate>2020-05-28T16:36:56+02:00</pubDate>
+      <pubDate>2020-05-28T16:39:33+02:00</pubDate>
       <link>/another-page/</link>
     </item>
   </channel>
