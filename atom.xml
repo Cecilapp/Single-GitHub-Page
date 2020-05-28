@@ -5,7 +5,7 @@
   <subtitle><![CDATA[]]></subtitle>
   <link href="/atom.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2020-05-28T16:34:56+02:00</updated>
+  <updated>2020-05-28T16:36:56+02:00</updated>
   <author>
     <name>Test</name>
     <uri>/</uri>
@@ -16,10 +16,10 @@
     <content type="html">
       <![CDATA[<h2>Welcome to another page</h2>
 <p><em>yay</em></p>
-<p><a href="./">back</a></p>]]>
+<p><a href="../">back</a></p>]]>
     </content>
     <link href="/another-page/" rel="alternate" type="text/html" />
-    <published>2020-05-28T16:34:56+02:00</published>
-    <updated>2020-05-28T16:34:56+02:00</updated>
+    <published>2020-05-28T16:36:56+02:00</published>
+    <updated>2020-05-28T16:36:56+02:00</updated>
   </entry>
 </feed>
