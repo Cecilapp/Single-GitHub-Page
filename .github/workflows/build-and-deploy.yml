@@ -1,22 +1,26 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - master
+    - master
+
 env:
-  CECIL_VERSION: '5.29.1'
+  CECIL_VERSION: '5.41.0'
   CECIL_BASEURL: '/'
   CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
   EMAIL: arnaud@ligny.org
   GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   BUILD_DIR: _site
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     container:
-      image: php:7.2-cli-alpine
+      image: php:7.4-cli-alpine
+
     steps:
     - name: Install PHP extensions
       if: env.INTL == 'yes'
@@ -25,16 +29,19 @@ jobs:
         apk add --no-cache gettext-dev icu-dev
         docker-php-ext-install -j$(nproc) gettext
         docker-php-ext-install -j$(nproc) intl
+
     - name: Checkout source
       uses: actions/checkout@v2
       with:
         fetch-depth: 1
+
     - name: Install theme(s)
       run: |
         if [[ -f "composer.json" ]]; then
           curl -sS https://getcomposer.org/installer | php
           php composer.phar install --prefer-dist --no-dev --no-progress --no-interaction
         fi
+
     - name: Build site with Cecil
       run: |
         if [[ -z "$CECIL_VERSION" ]]; then
@@ -51,19 +58,23 @@ jobs:
           php cecil.phar build -v --config=$CONFIG
         fi
         echo "### Cecil Action done"
+
     - name: Upload site to Artifacts
       uses: actions/upload-artifact@v1
       with:
         name: _site
         path: _site
+
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+
     steps:
     - name: Download site from Artifacts
       uses: actions/download-artifact@v1
       with:
         name: _site
+
     - name: Deploy site to GitHub Pages
       uses: Cecilapp/GitHub-Pages-deploy@2.0.1
