@@ -10,9 +10,6 @@ env:
   CECIL_BASEURL: '/'
   CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
-  EMAIL: arnaud@ligny.org
-  GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  BUILD_DIR: _site
 
 jobs:
   build:
@@ -39,7 +36,7 @@ jobs:
       run: |
         if [[ -f "composer.json" ]]; then
           curl -sS https://getcomposer.org/installer | php
-          php composer.phar install --prefer-dist --no-dev --no-progress --no-interaction
+          php composer.phar install --prefer-dist --no-dev --no-progress
         fi
 
     - name: Build site with Cecil
@@ -60,7 +57,7 @@ jobs:
         echo "### Cecil Action done"
 
     - name: Upload site to Artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: _site
         path: _site
@@ -72,9 +69,13 @@ jobs:
 
     steps:
     - name: Download site from Artifacts
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v2
       with:
         name: _site
 
     - name: Deploy site to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@2.0.1
+      uses: Cecilapp/GitHub-Pages-deploy@3.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        email: arnaud@ligny.org
