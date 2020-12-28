@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build & deploy to GitHub Pages
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
       run: |
         if [[ -f "composer.json" ]]; then
           curl -sS https://getcomposer.org/installer | php
-          php composer.phar install --prefer-dist --no-dev --no-progress
+          php composer.phar install --prefer-dist --no-dev --no-progress --ansi
         fi
 
     - name: Build site with Cecil
@@ -50,9 +50,9 @@ jobs:
         fi
         echo "### Building Cecil static site"
         if [[ -z "$CONFIG" ]]; then
-          php cecil.phar build -v
+          php cecil.phar build -v --ansi
         else
-          php cecil.phar build -v --config=$CONFIG
+          php cecil.phar build -v --config=$CONFIG --ansi
         fi
         echo "### Cecil Action done"
 
@@ -76,7 +76,7 @@ jobs:
         path: _site
 
     - name: Deploy site to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@3.0.0
+      uses: Cecilapp/GitHub-Pages-deploy@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
