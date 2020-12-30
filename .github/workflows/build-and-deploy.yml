@@ -42,19 +42,18 @@ jobs:
     - name: Build site with Cecil
       run: |
         if [[ -z "$CECIL_VERSION" ]]; then
-          echo "### Downloading Cecil"
+          echo "Downloading Cecil"
           curl -sSOL https://cecil.app/cecil.phar
         else
-          echo "### Downloading Cecil $CECIL_VERSION"
+          echo "Downloading Cecil $CECIL_VERSION"
           curl -sSOL https://cecil.app/download/$CECIL_VERSION/cecil.phar
         fi
-        echo "### Building Cecil static site"
         if [[ -z "$CONFIG" ]]; then
           php cecil.phar build -v --ansi
         else
+          echo "::debug::config=$CONFIG"
           php cecil.phar build -v --config=$CONFIG --ansi
         fi
-        echo "### Cecil Action done"
 
     - name: Upload site to Artifacts
       uses: actions/upload-artifact@v2
