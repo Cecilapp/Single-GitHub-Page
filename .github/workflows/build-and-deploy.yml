@@ -41,7 +41,6 @@ jobs:
 
     - name: Build site with Cecil
       run: |
-        echo "::group::Download"
         if [[ -z "$CECIL_VERSION" ]]; then
           echo "Downloading Cecil"
           curl -sSOL https://cecil.app/cecil.phar
@@ -49,13 +48,12 @@ jobs:
           echo "Downloading Cecil $CECIL_VERSION"
           curl -sSOL https://cecil.app/download/$CECIL_VERSION/cecil.phar
         fi
-        echo "::endgroup::"
         echo "::group::Build"
         if [[ -z "$CONFIG" ]]; then
-          php cecil.phar build -v --ansi
+          php cecil.phar build -vv --ansi
         else
           echo "::debug::config=$CONFIG"
-          php cecil.phar build -v --config=$CONFIG --ansi
+          php cecil.phar build -vv --config=$CONFIG --ansi
         fi
         echo "::endgroup::"
 
