@@ -6,7 +6,7 @@ on:
     - master
 
 env:
-  CECIL_VERSION: '5.41.0'
+  CECIL_VERSION: '5.42.7'
   CECIL_BASEURL: '/'
   CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
@@ -48,14 +48,12 @@ jobs:
           echo "Downloading Cecil $CECIL_VERSION"
           curl -sSOL https://cecil.app/download/$CECIL_VERSION/cecil.phar
         fi
-        echo "::group::Build"
         if [[ -z "$CONFIG" ]]; then
-          php cecil.phar build -vv --ansi
+          php cecil.phar build -v --ansi
         else
           echo "::debug::config=$CONFIG"
-          php cecil.phar build -vv --config=$CONFIG --ansi
+          php cecil.phar build -v --config=$CONFIG --ansi
         fi
-        echo "::endgroup::"
 
     - name: Upload site to Artifacts
       uses: actions/upload-artifact@v2
