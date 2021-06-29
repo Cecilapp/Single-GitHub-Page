@@ -6,9 +6,6 @@ on:
     - master
 
 env:
-  CECIL_VERSION: '5.42.7'
-  CECIL_BASEURL: '/'
-  CONFIG: 'cecil.yml'  
   INTL: 'no' # 'yes' if internationalization extensions are required
 
 jobs:
@@ -32,28 +29,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Install theme(s)
-      run: |
-        if [[ -f "composer.json" ]]; then
-          curl -sS https://getcomposer.org/installer | php
-          php composer.phar install --prefer-dist --no-dev --no-progress --ansi
-        fi
-
     - name: Build site with Cecil
-      run: |
-        if [[ -z "$CECIL_VERSION" ]]; then
-          echo "Downloading Cecil"
-          curl -sSOL https://cecil.app/cecil.phar
-        else
-          echo "Downloading Cecil $CECIL_VERSION"
-          curl -sSOL https://cecil.app/download/$CECIL_VERSION/cecil.phar
-        fi
-        if [[ -z "$CONFIG" ]]; then
-          php cecil.phar build -v --ansi
-        else
-          echo "::debug::config=$CONFIG"
-          php cecil.phar build -v --config=$CONFIG --ansi
-        fi
+      uses: Cecilapp/Cecil-Action@v3
+      with:
+        config: 'cecil.yml'
 
     - name: Upload site to Artifacts
       uses: actions/upload-artifact@v2
