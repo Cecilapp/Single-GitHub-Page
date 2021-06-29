@@ -5,25 +5,12 @@ on:
     branches:
     - master
 
-env:
-  INTL: 'no' # 'yes' if internationalization extensions are required
-
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    container:
-      image: php:7.4-alpine
 
     steps:
-    - name: Install PHP extensions
-      if: env.INTL == 'yes'
-      run: |
-        apk update
-        apk add --no-cache gettext-dev icu-dev
-        docker-php-ext-install -j$(nproc) gettext
-        docker-php-ext-install -j$(nproc) intl
-
     - name: Checkout source
       uses: actions/checkout@v2
       with:
