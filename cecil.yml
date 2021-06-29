@@ -1,6 +1,6 @@
 title: "Single GitHub Page"
 description: "Single GitHub Page demo"
-baseuel: "/"
+baseurl: "/"
 content:
   dir: .
 static:
