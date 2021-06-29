@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     container:
-      image: php:7.4-cli-alpine
+      image: php:7.4-alpine
 
     steps:
     - name: Install PHP extensions
