@@ -90,11 +90,11 @@ end
 
 ### Small image
 
-![Octocat](octocat.png)
+![Octocat](docs/octocat.png)
 
 ### Large image
 
-![Branching](branching.png)
+![Branching](docs/branching.png)
 
 
 ### Definition lists can be used with HTML syntax.
