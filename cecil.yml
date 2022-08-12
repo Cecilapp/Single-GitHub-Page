@@ -1,7 +1,7 @@
 title: "Single GitHub Page"
 description: "Single GitHub Page demo"
 baseurl: "/"
-content:
+pages:
   dir: .
 static:
   dir: docs
