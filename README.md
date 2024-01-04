@@ -1,8 +1,8 @@
 # Single GitHub Page demo
 
-> This is a repository template who builds a Single Page Website from the `README.md` file, with [Cecil](https://cecil.app), [GitHub Actions](https://github.com/features/actions) and [GitHub Pages](https://pages.github.com/).
+This repository template is able to build a _Single Page Website_ from the `README.md` file, with [Cecil](https://cecil.app), [GitHub Actions](https://github.com/features/actions) and [GitHub Pages](https://pages.github.com/).
 
-Demo: https://cecilapp.github.io/Single-GitHub-Page/
+Demo: <https://cecilapp.github.io/Single-GitHub-Page/>
 
 ## How to use?
 
