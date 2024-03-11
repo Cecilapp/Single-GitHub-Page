@@ -3,6 +3,6 @@ description: Single GitHub Page demo
 baseurl: /
 pages:
   dir: .
-static:
+assets:
   dir: docs
   target: docs
