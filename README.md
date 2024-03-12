@@ -6,5 +6,6 @@ Demo: <https://cecilapp.github.io/readme-to-website/>
 
 1. Fork this repository or click on [_Use this template_](https://github.com/Cecilapp/readme-to-website/generate) button
 2. Enable [_Publishing with GitHub Actions_](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
-3. Edit `Readme.md`
-4. Enjoy!
+3. Update site config through `cecil.yml`
+4. Edit content of `README.md`
+5. Enjoy!
