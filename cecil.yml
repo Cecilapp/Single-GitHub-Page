@@ -1,5 +1,5 @@
-title: Single GitHub Page
-description: Single GitHub Page demo
+title: Readme to Website
+description: readme-to-website demo site.
 baseurl: /
 pages:
   dir: .
